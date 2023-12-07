@@ -1,4 +1,3 @@
-// Contexto - O contexto contém a lista de livros e a expressão de consulta.
 class Context {
     constructor(books, query) {
         this.books = books;
@@ -11,12 +10,10 @@ class Context {
     }
 }
 
-// AbstractExpression - Interface para as expressões
 class AbstractExpression {
     interpret(book) {}
 }
 
-// TerminalExpression - Expressão terminal que representa um livro específico.
 class TerminalExpression extends AbstractExpression {
     constructor(property, value) {
         super();
@@ -29,7 +26,6 @@ class TerminalExpression extends AbstractExpression {
     }
 }
 
-// NonterminalExpression - Expressão não-terminal que combina duas expressões com um operador.
 class NonterminalExpression extends AbstractExpression {
     constructor(expression1, expression2, operator) {
         super();
@@ -48,7 +44,6 @@ class NonterminalExpression extends AbstractExpression {
     }
 }
 
-// QueryParser - Responsável por criar a árvore de expressões com base na consulta do usuário.
 class QueryParser {
     constructor(query) {
         this.query = query;
@@ -83,20 +78,17 @@ class QueryParser {
     }
 }
 
-// Dados de exemplo
 const books = [
     { title: "The Hobbit", author: "Tolkien", genre: "Fantasy" },
     { title: "The Lord of the Rings", author: "Tolkien", genre: "Fantasy" },
     { title: "Harry Potter", author: "Rowling", genre: "Fantasy" }
 ];
 
-// Função para buscar livros com base na consulta
 function searchBooks(books, query) {
     const [property, value] = query.split(":");
     return books.filter((book) => book[property] === value);
 }
 
-// Exemplo de uso
 const query = "author:Tolkien";
 const results = searchBooks(books, query);
 
