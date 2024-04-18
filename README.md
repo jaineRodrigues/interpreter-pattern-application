@@ -13,4 +13,9 @@ Este repositório contém um exemplo de implementação do Padrão de Design Int
 Para executar o exemplo, certifique-se de ter o Node.js instalado. Em seguida, execute o seguinte comando:
 
 ```bash
+node example-data.js
+```
+ou 
+```bash
 node interpreter-example.js
+
